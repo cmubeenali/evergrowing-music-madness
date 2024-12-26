@@ -1,6 +1,6 @@
 import logging, requests
 
-BEARER_TOKEN = ""
+BEARER_TOKEN = "AQA0XbjsW31iE0aBaQrBRI224usAtpuk9IJxXRoIuqVVHbamvyYYKMLBZY5k_eX08hFOPo_8wad1RqhQxVGqdEmhSuNCkTFoQ56YE8YIF-Co63EedDYKf6P__MUzUPl6xc0pKjre86iTtUQq6PtrLxOXGGL_7QivUAnMQ78EerSJGvquLgWUZocDX_tWJgIm7S0Qudc"
 
 
 def get_bearer_token():
@@ -32,7 +32,7 @@ def get_bearer_token():
 
 def fetch_liked_songs(limit=20, offset=0):
     url = "https://api.spotify.com/v1/me/tracks"
-    headers = {"Authorization": f"Basic {BEARER_TOKEN}"}
+    headers = {"Authorization": f"Bearer AQDtxeBVeGXKIDjBoOetdtPmSs-sjyAPtO-T9WE-PWMZAX4vdj2YO_QE4vFeE3Ep8S2GTDsHzOce6CV4dOosThnOe6x2XMQDY_pqG4zbZQKC6F4oyw3OIMunCVtrnAS8h_vZVjzulz2XDQFdpXR0D6QRNhoKa0hbpf07Ikz5LVqhNKpv9Lj-8yCxpBjgEpFrIstkF6pdeVtVTADodnjQ9CtOXCGNNye9QXhO8OXq"}
     params = {"limit": limit, "offset": offset}
 
     # Send GET request to Spotify API
@@ -78,11 +78,8 @@ def fetch_all_liked_songs():
         offset += limit
     return all_tracks
 
-
-# Example Usage
-all_liked_songs = fetch_all_liked_songs()
-print(f"Total liked songs: {len(all_liked_songs)}")
-
 if __name__ == "__main__":
-    token = get_bearer_token()
-    # fetch_all_liked_songs()
+    # BEARER_TOKEN = get_bearer_token()
+    # Example Usage
+    all_liked_songs = fetch_all_liked_songs()
+    print(f"Total liked songs: {len(all_liked_songs)}")
